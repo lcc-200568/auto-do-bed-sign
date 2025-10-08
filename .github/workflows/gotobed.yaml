@@ -1,39 +1,39 @@
-name: gotobed
+姓名: 名称:gotobed
 # 测试的话打开这个来测试变量值之类的是否填写正确
-# on:
-#  push:  # 任何推送到仓库都会触发这个工作流
+#on:
+# 推送：#任何推送到仓库都会触发这个工作流
 
 #on:
-#  schedule:
-#    - cron: '50 10 * * *' # 10对应的是北京时间晚上六点 50是分钟 表示每天晚上六点五十执行，可以改成任意时间测试
+日程安排:
+#    - Cron:'50 10***'#10对应的是北京时间晚上六点50是分钟表示每天晚上六点五十执行，可以改成任意时间测试
 
-on:
- workflow_dispatch:  # 允许手动触发
- schedule: # 每晚上十点执行 时差为 +8
-   - cron: '0 13 * * *'
+开启:
+工作流调度:  # 允许手动触发
+计划: # 每晚上十点执行 时差为 +8
+   - cron: '20 14 * * *'
 
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.11'
+工作:
+建造:
+运行中: 运行在:Ubuntu-最新
+步骤:
+      - 用途: - 用途:操作/结账@v2
+      - 姓名: -名称:设置python 3.11
+用途: 用途:actions/setup-python@v2
+和:
+Python版本: '3.11'
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install Pyexecjs requests pytz
+      - 姓名: -名称:安装依赖项
+运行: |
+python -m pip install --upgrade pip
+pip install Pyexecjs 请求 pytz
 
-      - name: Run python script
-        env:
-          USERNAME: ${{ secrets.USERNAME }}
-          PASSWORD: ${{ secrets.PASSWORD }}
-          EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS }}
-          TOKEN: ${{ secrets.TOKEN }}
+      - 姓名: -名称:运行python脚本
+env:
+用户名: 用户名{${{ secrets.USERNAME }}{{ secrets.USERNAME }}
+密码: 密码{${{秘密密码}}{{秘密密码}}
+电子邮件地址: 电子邮件地址{${{秘密.电子邮件地址}}{{秘密.电子邮件地址}}
+令牌: TOKEN: ${{秘密。已知}}{{秘密。已知}}
         run: |
           python gzlg助手/goToBed.py || echo "Script failed with exit code $?"
         
